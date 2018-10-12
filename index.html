@@ -18,7 +18,13 @@
     <div class="text-center">
 
       <!-- Here we have our button for generating random numbers (#random-button) -->
-      <button id="random-button" class="btn btn-primary btn-lg"><h4>Click Here to Play!</h4></button>
+      <!--<button id="random-button" class="btn btn-primary btn-lg"><h4>Click Here to Play!</h4></button> -->
+    <h4 id="directions-text">Press any letter to start playing!</h4>
+
+    <p id="win"></p>
+    <p id="lose"></p>
+    <p id="guesses"></p>
+    <p id="player-choice"></p>
 
     <br><br>
 
@@ -42,12 +48,19 @@
    var win = 0;
    var lose = 0;
    var guesses = 9;
-   //var playerGuess = "";
+   var playerGuess = "";
 
    //Array of all of the letter options
    var letter = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
-    var playerGuess = document.getElementById("random-letter");
+    //Variables to hold my references in HTML
+    var directionsText = document.getElementById("directions-text");
+    var winsText = document.getElementById("win");
+    var loseText = document.getElementById("lose");
+    var guessesText = document.getElementById("guesses");
+    //var playerChoice = document.getElementById("player-choice");
+
+    //var playerGuess = document.getElementById("random-letter");
 
     function restartGame() {
         guesses = 0;
@@ -79,15 +92,18 @@
         lose++;
     }
     
-   //document.getElementById("win").innerHTML = "Wins: " + win;
-   //document.getElementById("lose").innerHTML = "Losses: " + lose;
-   //document.getElementById("guesses").innerHTML = "Guesses Left: " + guesses;
+    //Hide directions once playing
+    directionsText.textContent = "";
 
-    var letterDiv = document.getElementById("random-letter");
+    guessesText.append("guesses") = "Guesses Left: " + guesses;
+    loseText.textContent = "Losses: " + lose;
+    winText.textContent = "Wins: " + win;
+
+    //var letterDiv = document.getElementById("random-letter");
    
    
     //append to userGuess
-   // userGuess.prepend("" + playerGuess);
+   // userGuess.append("" + playerGuess);
    }
 
    

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>The Psychic Game</title>
+  
+
+   <!-- Added a link to Bootstrap-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+</head>
+<body>
+
+  <div class="jumbotron">
+
+    <h1 class="text-center">Guess what letter I am thinking of!</h1>
+
+    <div class="text-center">
+
+      <!-- Here we have our button for generating random numbers (#random-button) -->
+      <button id="random-button" class="btn btn-primary btn-lg"><h4>Click Here to Play!</h4></button>
+
+    <br><br>
+
+      <p>Wins:</p>
+
+      <p>Losses:</p>
+
+      <p>Guesses Left:</p>
+
+      <p>Your Guesses so far:</p>
+
+    </div>
+
+  </div>
+
+  <!-- Here we have div called "random-letter" where our random letter will go -->
+  <h1 class="text-center" id="random-letter"></h1>
+
+  <script type="text/javascript">
+
+   var win = 0;
+   var lose = 0;
+   var guesses = 9;
+   //var playerGuess = "";
+
+   //Array of all of the letter options
+   var letter = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+
+    var playerGuess = document.getElementById("random-letter");
+
+    function restartGame() {
+        guesses = 0;
+        userGuess = [];
+        if (guesses === 0) {
+            restartGame();
+        }
+    }
+
+   //When a key is pressed we begin
+   document.onkeyup = function(event) {
+    console.log(event);
+
+    // Determines which key was pressed.
+    var userGuess = event.key;
+
+    //Computer's random choice from array
+    var computerGuess = letter[Math.floor(Math.random() * letter.length)];
+    console.log(computerGuess);
+
+    //Scoring
+    if (userGuess === computerGuess) {
+        win++;
+    }else {
+        guesses--;
+    }
+
+    if (guesses = 0) {
+        lose++;
+    }
+    
+   //document.getElementById("win").innerHTML = "Wins: " + win;
+   //document.getElementById("lose").innerHTML = "Losses: " + lose;
+   //document.getElementById("guesses").innerHTML = "Guesses Left: " + guesses;
+
+    var letterDiv = document.getElementById("random-letter");
+   
+   
+    //append to userGuess
+   // userGuess.prepend("" + playerGuess);
+   }
+
+   
+
+      // CREATE THE MISSING CODE HERE. Your code should add content to the random-letter div.
+      // ...
+    
+     
+
+    
+
+  </script>
+  
+</body>
+</html>

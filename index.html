@@ -46,15 +46,14 @@
 
     <script type="text/javascript">
 
-        //Array of all of the letter options
-        var letter = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+         //Array of all of the letter options
+         var letter = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
         var win = 0;
         var lose = 0;
         var guesses = 9;
+
         //var playerGuess = [];
-
         //Variables to hold my references in HTML
-
         var directionsText = document.getElementById("directions-text");
         var winsText = document.getElementById("win");
         winsText.textContent = win;
@@ -70,19 +69,16 @@
         console.log("computerGuess");
         console.log(computerChoice);
 
-        //When a key is pressed we begin
-        document.onkeyup = function (event) {
+      //When a key is pressed we begin
+      document.onkeyup = function (event) {
             //console.log(event.key);
-
             // Determines which key was pressed.
             var userGuess = event.key;
             console.log("userGuess");
             console.log(userGuess);
-
             //playerGuess.push(userGuess);
             //  console.log(playerGuess);---Add append below
             playerChoice.textContent = userGuess;
-
             if (userGuess === computerChoice) {
                 win++;
                 guesses = 9;
@@ -93,31 +89,23 @@
                 updateWinCount();
                 //updateGuesses();
             } else {
-
-
                 if (guesses === 0) {
                     lose++;
                     loseText.textContent = lose;
+               //Get guesses to start back at 9 after a loss
                 } else {
                     guesses--;
                     updateGuesses();
                 }
             }
-
-
-
         }
-
         function updateWinCount() {
             winsText.textContent = win;
         }
-
         function updateGuesses() {
             guessesLeftText.textContent = guesses;
         }
-
         //var playerGuess = document.getElementById("random-letter");
-
         function restartGame() {
             guesses = 0;
             userGuess = [];
@@ -125,38 +113,16 @@
                 restartGame();
             }
         }
-
-
-    //Scoring
-
-
+         //Scoring
     //if (guesses = 0) {
         //lose++;
-
-
     //Hide directions once playing
     //directionsText.textContent = "";
-
-
-
-
-
     //var letterDiv = document.getElementById("random-letter");
-
-
     //append to userGuess
    // userGuess.append("" + playerGuess);
    //}
-
-
-
-
-
-
-
-
-
-    </script>
+</script>
 
 </body>
 
